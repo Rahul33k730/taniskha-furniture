@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGO_URI).then(async () => {
     console.log('MongoDB Connected Successfully');
     
     // Create or Update admin user
-    let adminUser = await User.findOne({ role: 'admin' });
+    let adminUser = await User.findOne({ role: 'admin' }).select('+password');
     if (!adminUser) {
         await User.create({
             email: process.env.ADMIN_EMAIL,
@@ -44,11 +44,14 @@ mongoose.connect(process.env.MONGO_URI).then(async () => {
         });
         console.log('Admin user created');
     } else {
-        // Update admin if credentials changed
-        adminUser.email = process.env.ADMIN_EMAIL;
-        adminUser.password = process.env.ADMIN_PASSWORD;
-        await adminUser.save();
-        console.log('Admin credentials updated');
+        // Check if credentials actually changed
+        const isPasswordSame = await adminUser.comparePassword(process.env.ADMIN_PASSWORD);
+        if (adminUser.email !== process.env.ADMIN_EMAIL || !isPasswordSame) {
+            adminUser.email = process.env.ADMIN_EMAIL;
+            adminUser.password = process.env.ADMIN_PASSWORD;
+            await adminUser.save();
+            console.log('Admin credentials updated');
+        }
     }
 }).catch(err => {
     console.error('MongoDB Connection Error:', err.message);

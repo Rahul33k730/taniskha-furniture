@@ -57,10 +57,10 @@ const AdminLogin = () => {
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-sm font-bold text-primary px-1">Admin Email</label>
+            <label className="text-sm font-bold text-primary px-1">Admin ID</label>
             <div className="relative group">
               <input
-                type="email"
+                type="text"
                 required
                 className="w-full pl-12 pr-6 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
                 placeholder="admin.taniskha"
