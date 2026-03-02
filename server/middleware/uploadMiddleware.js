@@ -14,9 +14,9 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
-        folder: 'taniskha_furniture',
+        folder: 'trishka_furniture',
         allowed_formats: ['jpg', 'png', 'jpeg', 'webp'],
-        transformation: [{ width: 1000, height: 1000, crop: 'limit' }]
+    },    transformation: [{ width: 1000, height: 1000, crop: 'limit' }]
     },
 });
 

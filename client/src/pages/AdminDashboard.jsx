@@ -96,7 +96,7 @@ const AdminDashboard = () => {
           </div>
           <div className="flex flex-col">
             <span className="text-lg font-heading font-bold tracking-wide">Admin Dashboard</span>
-            <span className="text-xs text-accent uppercase tracking-widest font-medium">Taniskha Furniture</span>
+            <span className="text-xs text-accent uppercase tracking-widest font-medium">Trishka Furniture</span>
           </div>
         </div>
 
@@ -143,9 +143,9 @@ const AdminDashboard = () => {
         <header className="bg-white border-b border-gray-100 p-8 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 sticky top-0 z-20 shadow-sm">
           <div className="space-y-1">
             <h1 className="text-3xl font-heading font-bold text-primary">
-              Welcome Back, Admin
+              Trishka Admin
             </h1>
-            <p className="text-gray-400 font-medium">Manage your production catalog here.</p>
+            <p className="text-gray-400 font-medium">Manage your masterpiece collections</p>
           </div>
           <div className="flex items-center space-x-4 w-full md:w-auto">
             <div className="relative flex-grow md:w-80">

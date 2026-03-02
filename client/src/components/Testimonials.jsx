@@ -160,14 +160,14 @@ const Testimonials = () => {
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-primary px-1">Your Experience</label>
                       <textarea
-                        name="text"
-                        required
-                        rows="8"
-                        className="w-full px-6 py-4 bg-white rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all border border-gray-100 resize-none"
-                        placeholder="Share your experience with Taniskha Furniture..."
-                        value={formData.text}
-                        onChange={handleInputChange}
-                      ></textarea>
+                          name="text"
+                          required
+                          rows="8"
+                          className="w-full px-6 py-4 bg-white rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all border border-gray-100 resize-none"
+                          placeholder="Share your experience with Trishka Furniture..."
+                          value={formData.text}
+                          onChange={handleInputChange}
+                        ></textarea>
                     </div>
 
                     <button

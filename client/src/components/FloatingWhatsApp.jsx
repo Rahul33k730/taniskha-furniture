@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const FloatingWhatsApp = () => {
   const phoneNumber = "919140989013";
-  const message = "Hello Taniskha Furniture! I'm interested in your furniture collection.";
+  const message = "Hello Trishka Furniture! I'm interested in your furniture collection.";
   
   const handleClick = () => {
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');

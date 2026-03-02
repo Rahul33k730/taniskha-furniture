@@ -14,12 +14,12 @@ const Footer = () => {
                 <span className="text-primary font-heading font-bold text-xl">TF</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-white font-heading font-bold text-lg leading-tight tracking-wide">Taniskha</span>
+                <span className="text-white font-heading font-bold text-lg leading-tight tracking-wide">Trishka</span>
                 <span className="text-accent text-xs tracking-widest uppercase">Furniture</span>
               </div>
             </Link>
             <p className="text-gray-300 leading-relaxed text-sm">
-              "Crafting Comfort, Designing Dreams" - We provide premium quality, modern and minimalist furniture for your dream home.
+              Premium quality furniture for your modern home. Crafting comfort and designing dreams since 2020.
             </p>
             <div className="flex space-x-4 pt-4">
               <a href="#" className="text-gray-300 hover:text-accent transition-colors"><Facebook size={20} /></a>
@@ -32,9 +32,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-heading font-bold text-accent">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/shop" className="hover:text-white transition-colors">Shop All</Link></li>
-              <li><Link to="/#categories" className="hover:text-white transition-colors">Categories</Link></li>
+              <li><Link to="/shop" className="hover:text-white transition-colors">Shop Collection</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
               <li><Link to="/admin/login" className="hover:text-white transition-colors text-accent/60">Admin Portal</Link></li>
             </ul>
@@ -66,14 +64,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-3 text-accent" />
-                <span>taniskhafurniture@gmail.com</span>
+                <span>trishkafurniture@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Taniskha Furniture. All rights reserved. Designed with ❤️ by Taniskha Team.</p>
+          <p>&copy; {new Date().getFullYear()} Trishka Furniture. All rights reserved. Designed with ❤️ by Trishka Team.</p>
         </div>
       </div>
     </footer>

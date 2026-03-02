@@ -23,7 +23,7 @@ const Navbar = () => {
               <span className="text-accent font-heading font-bold text-xl">TF</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-primary font-heading font-bold text-lg leading-tight">Taniskha</span>
+              <span className="text-primary font-heading font-bold text-lg leading-tight">Trishka</span>
               <span className="text-gray-500 text-xs tracking-widest uppercase">Furniture</span>
             </div>
           </Link>

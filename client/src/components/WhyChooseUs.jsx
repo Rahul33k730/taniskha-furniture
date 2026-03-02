@@ -34,7 +34,7 @@ const WhyChooseUs = () => {
             <div className="space-y-4">
               <span className="text-accent font-heading font-bold uppercase tracking-widest text-sm">Our Philosophy</span>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary leading-tight">
-                Why Choose <span className="text-accent italic">Taniskha Furniture?</span>
+                Why Choose <span className="text-accent italic">Trishka Furniture?</span>
               </h2>
               <p className="text-gray-500 leading-relaxed text-lg">
                 We don't just sell furniture; we create experiences. Our commitment to craftsmanship and design ensures that every piece tells a story of comfort and elegance.

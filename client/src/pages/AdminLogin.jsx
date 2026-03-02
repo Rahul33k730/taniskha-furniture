@@ -52,7 +52,7 @@ const AdminLogin = () => {
             <ShieldCheck size={40} className="text-accent" />
           </div>
           <h1 className="text-3xl font-heading font-bold text-primary">Admin Portal</h1>
-          <p className="text-gray-400">Secure access for Taniskha Furniture</p>
+          <p className="text-gray-400">Secure access for Trishka Furniture</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">
@@ -63,7 +63,7 @@ const AdminLogin = () => {
                 type="text"
                 required
                 className="w-full pl-12 pr-6 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
-                placeholder="admin.taniskha"
+                placeholder="admin.trishka"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -78,7 +78,7 @@ const AdminLogin = () => {
                 type={showPassword ? 'text' : 'password'}
                 required
                 className="w-full pl-12 pr-12 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
-                placeholder="taniskha913230"
+                placeholder="trishka913230"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

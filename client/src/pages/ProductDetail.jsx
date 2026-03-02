@@ -44,7 +44,7 @@ const ProductDetail = () => {
   const { name, price, description, category, images, stock } = product;
 
   const handleWhatsAppOrder = () => {
-    const message = `Hello Taniskha Furniture! I'm interested in ordering: ${name} (ID: ${id}) priced at ₹${price}. Please let me know the availability and delivery details.`;
+    const message = `Hello Trishka Furniture! I'm interested in ordering: ${name} (ID: ${id}) priced at ₹${price}. Please let me know the availability and delivery details.`;
     const whatsappUrl = `https://wa.me/919140989013?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };

@@ -47,7 +47,7 @@ const Contact = () => {
                 <div className="text-accent bg-primary p-3 rounded-2xl"><Mail size={24} /></div>
                 <div className="flex flex-col">
                   <span className="font-bold text-primary">Email</span>
-                  <span className="text-sm text-gray-500">taniskhafurniture@gmail.com</span>
+                  <span className="text-sm text-gray-500">trishkafurniture@gmail.com</span>
                 </div>
               </div>
               <div className="flex items-start space-x-4 p-8 bg-white rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
