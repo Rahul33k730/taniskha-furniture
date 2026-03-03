@@ -10,7 +10,7 @@ const staticTestimonials = [
     name: 'Anjali Sharma',
     role: 'Homeowner',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    text: 'Taniskha Furniture has transformed my living room. The quality of the sofa is exceptional and the design is so modern and minimalist. Highly recommended!',
+    text: 'Trishka Furniture has transformed my living room. The quality of the sofa is exceptional and the design is so modern and minimalist. Highly recommended!',
     rating: 5
   },
   {
@@ -18,7 +18,7 @@ const staticTestimonials = [
     name: 'Rajiv Malhotra',
     role: 'Interior Designer',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    text: "As a designer, I'm very picky about the pieces I choose for my clients. Taniskha consistently delivers high-quality, beautiful furniture that my clients love.",
+    text: "As a designer, I'm very picky about the pieces I choose for my clients. Trishka consistently delivers high-quality, beautiful furniture that my clients love.",
     rating: 5
   }
 ];
@@ -81,7 +81,7 @@ const Testimonials = () => {
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-primary">What Our Customers Say</h2>
             <div className="w-24 h-1 bg-accent mx-auto md:mx-0 rounded-full"></div>
             <p className="text-gray-500 max-w-lg leading-relaxed">
-              Real stories from real customers who have transformed their homes with Taniskha Furniture.
+              Real stories from real customers who have transformed their homes with Trishka Furniture.
             </p>
           </div>
           

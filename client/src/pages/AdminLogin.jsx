@@ -112,7 +112,7 @@ const AdminLogin = () => {
         <div className="mt-8 text-center">
           <p className="text-xs text-gray-400 leading-relaxed uppercase tracking-widest">
             Protected by production-level encryption <br />
-            © {new Date().getFullYear()} Taniskha Furniture
+            © {new Date().getFullYear()} Trishka Furniture
           </p>
         </div>
       </motion.div>
