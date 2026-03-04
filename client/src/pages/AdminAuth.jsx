@@ -79,7 +79,7 @@ const AdminLogin = () => {
                 type={showPassword ? 'text' : 'password'}
                 required
                 className="w-full pl-12 pr-12 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
-                placeholder="pudun1234"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
