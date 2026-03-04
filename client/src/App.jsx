@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
 import Contact from './pages/Contact';
-import AdminLogin from './pages/AdminLogin';
+import AdminAuth from './pages/AdminAuth';
 import AdminDashboard from './pages/AdminDashboard';
 import AddProduct from './pages/AddProduct';
 
