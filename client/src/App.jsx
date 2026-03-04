@@ -20,7 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         
         {/* Admin Routes */}
-        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/login" element={<AdminAuth />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/products/add" element={<AddProduct />} />
         <Route path="/admin/products/edit/:id" element={<AddProduct />} />
