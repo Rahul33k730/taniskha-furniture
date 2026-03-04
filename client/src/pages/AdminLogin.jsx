@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
 const AdminLogin = () => {
+  // Forcing a redeploy by adding a comment
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -63,7 +64,7 @@ const AdminLogin = () => {
                 type="email"
                 required
                 className="w-full pl-12 pr-6 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
-                placeholder="trishkafurniture@gmail.com"
+                placeholder="pudunfoundation@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -78,7 +79,7 @@ const AdminLogin = () => {
                 type={showPassword ? 'text' : 'password'}
                 required
                 className="w-full pl-12 pr-12 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
-                placeholder="trishka913230"
+                placeholder="pudun1234"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
