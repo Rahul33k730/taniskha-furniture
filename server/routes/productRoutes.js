@@ -8,8 +8,8 @@ router.get('/', getProducts);
 router.get('/:id', getSingleProduct);
 
 // Admin routes
-router.post('/', isAuthenticatedUser, authorizeRoles('admin'), upload.array('images', 5), createProduct);
-router.put('/:id', isAuthenticatedUser, authorizeRoles('admin'), upload.array('images', 5), updateProduct);
+router.post('/', isAuthenticatedUser, authorizeRoles('admin'), upload.array('images', 10), createProduct);
+router.put('/:id', isAuthenticatedUser, authorizeRoles('admin'), upload.array('images', 10), updateProduct);
 router.delete('/:id', isAuthenticatedUser, authorizeRoles('admin'), deleteProduct);
 
 module.exports = router;

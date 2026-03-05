@@ -11,10 +11,27 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    process.env.CLIENT_URL_WWW,
+    process.env.VERCEL_URL,
+    'http://localhost:5173',
+].filter(Boolean);
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            return callback(null, true);
+        }
+        return callback(new Error('Not allowed by CORS'));
+    },
     credentials: true
 }));
+
+// Handle preflight for all routes
+app.options('*', cors());
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
@@ -34,7 +51,6 @@ app.get('/ping', (req, res) => {
 mongoose.connect(process.env.MONGO_URI).then(async () => {
     console.log('MongoDB Connected Successfully');
     
-    // Create or Update admin user
     let adminUser = await User.findOne({ role: 'admin' }).select('+password');
     if (!adminUser) {
         await User.create({
@@ -44,7 +60,6 @@ mongoose.connect(process.env.MONGO_URI).then(async () => {
         });
         console.log('Admin user created');
     } else {
-        // Check if credentials actually changed
         const isPasswordSame = await adminUser.comparePassword(process.env.ADMIN_PASSWORD);
         if (adminUser.email !== process.env.ADMIN_EMAIL || !isPasswordSame) {
             adminUser.email = process.env.ADMIN_EMAIL;

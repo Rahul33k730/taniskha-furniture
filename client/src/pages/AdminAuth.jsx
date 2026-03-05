@@ -6,7 +6,6 @@ import { toast } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
 const AdminLogin = () => {
-  // Forcing a redeploy by adding a comment
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +30,6 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-secondary/20 flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Decorative elements */}
       <div className="absolute top-0 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-0 animate-pulse"></div>
       <div className="absolute bottom-0 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-0 animate-pulse delay-700"></div>
 
@@ -56,7 +54,7 @@ const AdminLogin = () => {
           <p className="text-gray-400">Secure access for Trishka Furniture</p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-6">
+        <form onSubmit={handleLogin} className="space-y-6" autoComplete="off">
           <div className="space-y-2">
             <label className="text-sm font-bold text-primary px-1">Admin Email</label>
             <div className="relative group">
@@ -64,7 +62,8 @@ const AdminLogin = () => {
                 type="email"
                 required
                 className="w-full pl-12 pr-6 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
-                placeholder="pudunfoundation@gmail.com"
+                placeholder="Enter admin email"
+                autoComplete="new-password"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -80,6 +79,7 @@ const AdminLogin = () => {
                 required
                 className="w-full pl-12 pr-12 py-4 bg-gray-50 rounded-2xl outline-none focus:ring-2 focus:ring-primary transition-all group-hover:bg-gray-100"
                 placeholder="Password"
+                autoComplete="new-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

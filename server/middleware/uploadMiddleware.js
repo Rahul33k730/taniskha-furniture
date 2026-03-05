@@ -13,13 +13,38 @@ cloudinary.config({
 
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
-    params: {
-        folder: 'trishka_furniture',
-        allowed_formats: ['jpg', 'png', 'jpeg', 'webp'],
-        transformation: [{ width: 1000, height: 1000, crop: 'limit' }]
-    },
+    params: async (req, file) => {
+        const isVideo = file.mimetype.startsWith('video/');
+        return {
+            folder: 'trishka_furniture',
+            resource_type: isVideo ? 'video' : 'image',
+            allowed_formats: isVideo
+                ? ['mp4', 'mov', 'avi', 'webm']
+                : ['jpg', 'png', 'jpeg', 'webp'],
+            ...(isVideo ? {} : { transformation: [{ width: 1000, height: 1000, crop: 'limit' }] })
+        };
+    }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 100 * 1024 * 1024 }, // 100MB limit for videos
+    fileFilter: (req, file, cb) => {
+        const allowed = [
+            'image/jpeg',
+            'image/png',
+            'image/webp',
+            'video/mp4',
+            'video/quicktime',
+            'video/avi',
+            'video/webm'
+        ];
+        if (allowed.includes(file.mimetype)) {
+            cb(null, true);
+        } else {
+            cb(new Error('Only images and videos are allowed'), false);
+        }
+    }
+});
 
 module.exports = { upload, cloudinary };

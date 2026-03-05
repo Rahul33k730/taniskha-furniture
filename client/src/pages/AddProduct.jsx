@@ -51,7 +51,7 @@ const AddProduct = () => {
       const { data } = await api.get(`/products/${id}`);
       const { name, price, description, category, stock, images } = data.product;
       setFormData({ name, price, description, category, stock });
-      setPreviews(images.map(img => img.url));
+      setPreviews(images.map(img => ({ url: img.url, type: 'image' })));
     } catch (error) {
       toast.error('Failed to fetch product details');
     }
@@ -65,7 +65,10 @@ const AddProduct = () => {
     const files = Array.from(e.target.files);
     setImages(files);
 
-    const filePreviews = files.map(file => URL.createObjectURL(file));
+    const filePreviews = files.map(file => ({
+      url: URL.createObjectURL(file),
+      type: file.type.startsWith('video/') ? 'video' : 'image'
+    }));
     setPreviews(filePreviews);
   };
 
@@ -79,23 +82,16 @@ const AddProduct = () => {
     images.forEach(image => productData.append('images', image));
 
     try {
-      const token = localStorage.getItem('token');
       setUploadProgress(60);
       
       if (isEdit) {
         await api.put(`/products/${id}`, productData, {
-          headers: { 
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${token}` 
-          }
+          headers: { 'Content-Type': 'multipart/form-data' }
         });
         toast.success('Product updated successfully!');
       } else {
         await api.post('/products', productData, {
-          headers: { 
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${token}` 
-          }
+          headers: { 'Content-Type': 'multipart/form-data' }
         });
         toast.success('Product added successfully!');
       }
@@ -184,7 +180,6 @@ const AddProduct = () => {
         </AnimatePresence>
 
         <form id="product-form" onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Info */}
           <div className="lg:col-span-2 space-y-8">
             <section className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-50 space-y-8">
               <div className="flex items-center space-x-4 border-b border-gray-50 pb-6">
@@ -242,7 +237,11 @@ const AddProduct = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         className="aspect-square rounded-2xl overflow-hidden relative group shadow-md border border-gray-100"
                       >
-                        <img src={preview} className="w-full h-full object-cover" alt="" />
+                        {preview.type === 'video' ? (
+                          <video src={preview.url} className="w-full h-full object-cover" muted playsInline />
+                        ) : (
+                          <img src={preview.url || preview} className="w-full h-full object-cover" alt="" />
+                        )}
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                           <CheckCircle2 className="text-white" size={32} />
                         </div>
@@ -252,19 +251,18 @@ const AddProduct = () => {
                   
                   <label className="aspect-square rounded-2xl border-4 border-dashed border-gray-100 hover:border-accent hover:bg-accent/5 transition-all flex flex-col items-center justify-center cursor-pointer group space-y-2">
                     <div className="p-4 bg-gray-50 rounded-full text-gray-400 group-hover:text-accent transition-colors"><Upload size={24} /></div>
-                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest group-hover:text-accent">Upload Photos</span>
-                    <input type="file" multiple className="hidden" onChange={handleImageChange} />
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest group-hover:text-accent">Upload Photos/Videos</span>
+                    <input type="file" multiple accept="image/*,video/*" className="hidden" onChange={handleImageChange} />
                   </label>
                 </div>
                 <div className="flex items-start space-x-3 p-4 bg-blue-50 text-blue-600 rounded-2xl text-sm font-medium">
                   <AlertCircle size={20} className="shrink-0" />
-                  <p>For best results, upload high-resolution photos (min 1000x1000px) with a clean background. Maximum 5 images allowed.</p>
+                  <p>Upload high-resolution photos (min 1000x1000px) or videos (max 100MB). Maximum 10 files allowed.</p>
                 </div>
               </div>
             </section>
           </div>
 
-          {/* Side Info */}
           <div className="space-y-8">
             <section className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-50 space-y-8 sticky top-32">
               <div className="flex items-center space-x-4 border-b border-gray-50 pb-6">
