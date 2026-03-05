@@ -31,7 +31,7 @@ app.use(cors({
 }));
 
 // Handle preflight for all routes
-app.options('*', cors());
+app.options('/{*path}', cors());
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
